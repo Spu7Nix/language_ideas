@@ -1,0 +1,51 @@
+// you can get program input with `in` at the start of the program
+
+in input;
+
+// `:=` pattern matching operator
+// also destructs and creates variables with `var`
+// it does not return booleans, booleans dont exist lol
+
+var a := input;
+[var b, var c] := [1, 2];
+
+// if expressions take a pattern match result, not a boolean
+if a := 10 then print "hello";
+if var d := 10 then print d;
+
+// `:` captures a specific part of a pattern (like @ in rust)
+var a: Int := 10;
+var arr: [Int, var last: Int] := [1, 2];
+// arr := [1, 2], last := 2
+
+// function syntax: [arg pattern]; [result expression]
+// create multiple args by currying
+// if the expression ends (eof or `)`), the function will return ()
+var add := (
+    in a: Int;
+    in b: Int;
+    a + b
+);
+
+// as you might have noticed, essentially every statement is a kind of argument, so you can use those as well
+// an "input" argument can't come after one of these other arguments tho
+var add_or_sub := (
+    in a: Int;
+    in b: Int;
+    var res1 := a + b;
+    var res2 := a - b;
+    // you can create comparison patterns with < > <= >= prefixes
+    if a := >10 then res1 else res2
+);
+
+// function call syntax: [function] [argument]
+add_or_sub 20 10;
+
+// combine patterns with pattern expressions
+// `&` requires both patterns to be matched
+// `!` prefix requires the pattern to not be matched
+if var a := 5 & var b := 3 then (
+    print a + b;
+    if (a := >0 & <100) & !(b := >10) then print "ewufhi";
+);
+

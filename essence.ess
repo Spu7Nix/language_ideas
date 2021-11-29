@@ -1,0 +1,16 @@
+# a language that is just an advanced type system lol
+
+# declare a type with `:`
+number: int | float
+
+# functions are types, using `->`
+add_1: number -> number + 1
+
+# use type aliases to differentiate types in functions
+n1: number
+n2: number
+add: n1 -> n2 -> n1 + n2
+
+# basically its inspired by the fact that in haskell
+# you can often figure out what a function does just
+# based on it's type signature

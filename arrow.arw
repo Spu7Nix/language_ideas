@@ -1,0 +1,20 @@
+# a language where the direction the argument comes from matters
+# a function can be defined with `[arg] -> [expression]` or `[expression] <- [arg]` (or `[arg] -> [expression] <- [arg]`)
+# a function defined with -> takes an argument from the left and returns an expression from the right, like this: `[value] [function]`
+# a function defined with <- takes an argument from the right and returns an expression from the left, like this: `[function] [value]`
+# not sure how to deal with precedences and stuff yet
+
+
+# an argument can have a set value
+# this kind of argument must come after any normal input arguments
+a ->
+b := 20 ->
+
+(a + b)^2 * b^2 / (a - b)^3 
+
+<- + := (a -> (_plus_ a b) <- b)
+<- - := (a -> (_minus_ a b) <- b)
+<- * := (a -> (_times_ a b) <- b)
+<- / := (a -> (_div_ a b) <- b)
+<- % := (a -> (_mod_ a b) <- b)
+<- ^ := (a -> (_pow_ a b) <- b)
