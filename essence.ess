@@ -1,7 +1,8 @@
 # a language that is just an advanced type system lol
 
 # declare a type with `:`
-number: int | float
+# use `|` to make enum/union types
+number: int | float | (int + int) | (float + float)
 
 # functions are types, using `->`
 add_1: number -> number + 1
